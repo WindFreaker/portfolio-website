@@ -1,0 +1,27 @@
+:root {
+    --background-color: rgb(249, 249, 250);
+    --text-color: rgb(54, 57, 89);
+    --field-color: rgb(255, 255, 255);
+    --outline-color: rgb(203, 203, 204);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: rgb(42, 42, 46);
+        --text-color: rgb(249, 249, 250);
+        --field-color: rgb(56, 56, 61);
+        --outline-color: rgb(95, 95, 99);
+    }
+}
+
+[dark-mode="enabled"] { /* THIS BLOCK SHOULD REMAIN EXACTLY THE SAME AS THE ONE ABOVE */
+    --background-color: rgb(42, 42, 46);
+    --text-color: rgb(249, 249, 250);
+    --field-color: rgb(56, 56, 61);
+    --outline-color: rgb(95, 95, 99);
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
