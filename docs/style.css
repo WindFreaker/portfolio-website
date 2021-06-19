@@ -1,7 +1,4 @@
-:root {
-    font-family: sans-serif;
-    font-weight: bold;
-    
+:root {   
     --background-color: #F9F9FA;
     --text-color: #363959;
     --field-color: #FFFFFF;
@@ -40,6 +37,34 @@
     --highlight-color-4: #9D71FF;
 }
 
+.themeSwitch {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    background-color: var(--field-color);
+    border-top-left-radius: 0.5em;
+    padding-left: 0.2em;
+}
+
+.themeSwitch input {
+    opacity: 1;
+}
+
+.themeSwitch span {
+    position: absolute;
+    cursor: pointer;
+    background-color: red;
+    transition: 0.4s;
+}
+
+/* THEME SWITCHER STUFF ABOVE */
+
+:root {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -58,13 +83,26 @@ body {
     display: grid;
     grid-template-areas:
     'header header header header'
-    'projects resume social other';
+    'projects resume social other'
+    'search search search search';
 }
 
 .centered-header {
     color: var(--text-color);
     grid-area: header;
     font-size: 2em;
+    font-family: monospace;
+    letter-spacing: 0.15em;
+    animation: typing 3.5s steps(13, end), 
+        blink-caret .8s step-end infinite;
+    white-space: nowrap;
+    margin: 0 auto;
+    border-right: 0.15em solid orange;
+    overflow: hidden;
+}
+
+.searchbar {
+    grid-area: search;
 }
 
 .centered-item {
@@ -73,17 +111,21 @@ body {
     margin: 1em;
     background-color: var(--field-color);
     padding: 0.6em;
-    line-height: 1.4;
+    line-height: 1.2;
     border: 2px var(--outline-color) solid;
 }
 
-.centered-item br {
-    line-height: 0.8;
+.centered-item div {
+    font-weight: inherit;
+    border-bottom: 2px var(--outline-color) solid;
+    padding-bottom: 0.4em;
 }
 
 .centered-item a {
     color: var(--text-color);
     text-decoration: none;
+    display: block;
+    padding-top: 0.4em;
 }
 
 .centered-item a:hover {
@@ -110,23 +152,17 @@ body {
     grid-area: other;
 }
 
-.themeSwitch {
-    position: absolute;
-    z-index: 10;
-    top: 0;
-    right: 0;
-    background-color: var(--field-color);
-    border-top-left-radius: 0.5em;
-    padding-left: 0.2em;
+/* ANIMATIONS BELOW */
+
+https://www.codesdope.com/blog/article/12-creative-css-and-javascript-text-typing-animati/
+https://learntocodewith.me/posts/portfolio-tips/
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 30% }
 }
 
-.themeSwitch input {
-    opacity: 1;
-}
-
-.themeSwitch span {
-    position: absolute;
-    cursor: pointer;
-    background-color: red;
-    transition: 0.4s;
+@keyframes blink-caret { 
+    from, to { border-color: transparent }
+    50% { border-color: orange }
 }
